@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import { Provider } from "react-redux";
+import Welcome from "./Pages/Welcome";
+import Dashboard from "./Pages/Dashboard";
+import PatientFeedback from "./Pages/PatientFeedback";
+import TherapistHome from "./Pages/TherapistHome";
+import TherapistSubmit from "./Pages/TherapistSubmit";
+import TherapistView from "./Pages/TherapistView";
+import Store from "./Store.js";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Provider store={Store}>
+        <Routes>
+          <Route path="/" element={<Welcome />} />
+          <Route path="PatientDashboard" element={<Dashboard />} />
+          <Route path="Feedback" element={<PatientFeedback />} />
+          <Route path="Update" element={<TherapistSubmit />} />
+          <Route path="ViewFeedback" element={<TherapistView />} />
+          <Route path="TherapistDashboard" element={<TherapistHome />} />
+        </Routes>
+      </Provider>
     </div>
   );
 }
