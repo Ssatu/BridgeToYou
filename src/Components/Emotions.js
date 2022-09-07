@@ -51,6 +51,7 @@ export default function Emotions(props) {
       category: "Confident",
       emotion: "Hopeful",
       icon: "👌",
+      color:"red"
     },
     {
       category: "Confident",
@@ -93,11 +94,13 @@ export default function Emotions(props) {
       category: "Angry",
       emotion: "Angry",
       icon: "😡",
+      color:"red"
     },
     {
       category: "Angry",
       emotion: "Agitated",
       icon: "😠",
+
     },
     {
       category: "Angry",

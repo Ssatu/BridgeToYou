@@ -201,7 +201,7 @@ export default function FeedbackForm(props) {
   }
 
   function handleSubmit() {
-    dispatch(updateEmotions(props.emotions.map((e) => e.emotion)));
+    dispatch(updateEmotions(props.emotions));
     dispatch(updateFeedback(feedback));
     navigate("/PatientDashboard");
   }
