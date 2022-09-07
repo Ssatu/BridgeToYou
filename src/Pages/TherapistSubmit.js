@@ -49,61 +49,78 @@ function TherapistSubmit() {
   }
 
   return (
-    <>
-      <div
+    <div>
+      <button class = "float-right mt-4 mr-4 rounded-full w-fit bg-white shadow-xl first-line:text-black bg-white hover:bg-slate-200 text-2xl px-4 py-2"
         onClick={(e) => {
           navigate("/TherapistDashboard");
         }}
       >
         Back
+      </button>
+      <div class = "py-14 bg-blue-100 bg-gradient-to-b from-emerald-300 to-white">
+        <div class = "rounded-full bg-white mx-80 outline-double outline-green-700 outline-4 outline-offset-3 ">
+          <div class = "text-3xl py-4">
+          Here's <span> George's </span> current progress:
+          </div>
+          <div class = "text-xl py-6">
+          {completedSessions} out of {totalSessions} completed{" "}
+          </div>
+        </div>
       </div>
-      <div>
-        Here's <span>George's</span> current progress:
+      <div class = "text-2xl outline-dashed outline-black outline-3 outline-offset-2 mx-auto py-4 font-semibold">
+            Therapy Objective: {therapyObjective} 
       </div>
-      <div>
-        {completedSessions} out of {totalSessions} completed{" "}
-      </div>
-      <div>Their therapy objective: {therapyObjective} </div>
-      <div>
-        What they last completed:{" "}
-        {lastWeek.map((achievement) => (
-          <div>{achievement}</div>
-        ))}
-      </div>
-      <div>
-        {completedSessions < totalSessions ? (
-          <form>
-            Completed a sesssion? Give them an update on their progress!
-            <div>
-              <label>What did they accomplish last week?</label>
-              <input
-                type="text"
-                onChange={(e) => {
-                  setAccomplish(e.target.value);
+      <div class = "py-12 grid grid-cols-2 divide-gray-300">
+        <div class = "mx-14 bg-white rounded-lg border border-gray-200 shadow-md">
+          <div class = "mb-2 py-6 text-xl font-semibold tracking-tight text-gray-900">
+            What they last completed:{" "}
+            {lastWeek.map((achievement) => (
+              <div class = "py-4 text-base font-normal text-gray-700 dark:text-gray-400">
+                {achievement}
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class = "mx-14 bg-white rounded-lg border border-gray-200 shadow-md">
+          {completedSessions < totalSessions ? (
+            <form class = "mb-2 py-6 text-xl font-semibold tracking-tight text-gray-900">
+              Completed a session? Give them an update on their progress!
+              <div class = "py-2 outline-black outline-3">
+                <label class = "py-4 px-4 text-base font-normal text-gray-700 dark:text-gray-400">
+                  What did they accomplish last week?
+                </label>
+                <input class = "py-1 font-normal text-sm outline-dotted outline-2 outline-black"
+                  type="text"
+                  onChange={(e) => {
+                    setAccomplish(e.target.value);
+                  }}
+                />
+              </div>
+              <div>
+                <div class = "py-4">Which fable would you want to assign to them?</div>
+                <div class = "py-1 mx-56 font-normal text-sm outline-2 outline-dotted outline-black">
+                  <select onChange={(e) => setChoice(e.target.value)}>
+                    <option value={0}>The Bald Man and the Fly</option>
+                    <option value={1}>The Crow and the Pitcher</option>
+                    <option value={2}>The Dog and the Hare</option>
+                  </select>
+                </div>
+
+              </div>
+              <button class="mt-6 text-white bg-sky-500 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                onClick={(e) => {
+                  handleSubmit();
                 }}
-              />
-            </div>
-            <div>
-              <label>Which fable would you want to assign to them?</label>
-              <select onChange={(e) => setChoice(e.target.value)}>
-                <option value={0}>The Bald Man and the Fly</option>
-                <option value={1}>The Crow and the Pitcher</option>
-                <option value={2}>The Dog and the Hare</option>
-              </select>
-            </div>
-            <div
-              onClick={(e) => {
-                handleSubmit();
-              }}
-            >
-              Submit their progress update!
-            </div>
-          </form>
-        ) : (
-          <div>Congratulations, they've completed all their sessions!</div>
-        )}
+              >
+                Submit their progress update!
+              </button>
+            </form>
+          ) : (
+            <div class = "mt-12 mx-4 font-semibold text-2xl text-green-800"> Congratulations, they've completed all their sessions!</div>
+          )}
+        </div>
       </div>
-    </>
+    </div>
   );
 }
 
