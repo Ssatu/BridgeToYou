@@ -15,7 +15,6 @@ export default function Tracker(props) {
           </div>
         </div>
       </div>
-    
 
       <div className="whatsDonePrevSession">
         <div class="pt-8 pb-4">What you've accomplished last session!</div>

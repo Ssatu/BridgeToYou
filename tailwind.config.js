@@ -4,8 +4,8 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     fontFamily: {
-      sans: ["Open Sans"],
-      body: ["Roboto"]
+      sans: ["Helvetica", "Arial", "sans-serif"],
+      body: ["Roboto"],
     },
     extend: {},
   },
