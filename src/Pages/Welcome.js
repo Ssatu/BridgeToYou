@@ -4,7 +4,7 @@ function Welcome() {
   return (
     <div class="h-screen bg-blue-100 bg-gradient-to-b from-sky-400 to-white">
       <div class="font-sans font-semibold mb-4 text-8xl font-semibold text-gray-900 py-28">
-        Welcome to Bridge!
+        Welcome to BridgeToYou!
       </div>
       <div class="font-mono flex item-center justify-center text-3xl mb-12 mr-6 ">
         I am a ...
