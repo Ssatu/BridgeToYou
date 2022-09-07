@@ -18,32 +18,60 @@ function Dashboard() {
   const [fable, setFable] = useState(user.fable);
 
   return (
-    <div>
-      <div
-        onClick={(e) => {
-          navigate("/");
-        }}
-      >
-        Log out
+      <div class="h-screen">
+        <div class ="grid grid-cols-3">
+          <div>
+            <div class="text-4xl pt-10">
+              Welcome back,
+            </div>
+            <div class="text-6xl pb-10">
+              {user.name}
+            </div>
+          </div>
+          
+          <div class="pt-10">
+            <Tracker
+              lastWeek={lastWeek}
+              therapyObjective={therapyObjective}
+              completedSessions={completedSessions}
+              totalSessions={totalSessions}
+            />
+          </div> 
+          
+          <div class="justify-center">
+            <div class="float-right mt-4 mr-4 rounded-full w-fit first-line:text-black bg-white hover:bg-slate-200 text-2xl px-4 py-2"
+              onClick={(e) => {
+                navigate("/");
+              }}>
+              Log out
+            </div>
+          </div>
+          
+        </div>
+
+        <div class="grid grid-cols-8 gap-10">
+          <div class="col-span-2">
+            <div class="justify-center">     
+              <div class="w-60 p-2 rounded-full hover:bg-slate-200">
+                <Link to="/Feedback">
+                  Let your therapist know how you felt about the session!
+                </Link>
+              </div>
+            </div>
+          </div>
+            
+          
+          <div class="col-span-4">
+            <div class="rounded-3xl px-4 font-bold">  
+              {fable ? (
+                  <Aesopp fable={fable} />
+                ) : (
+                  <div class="py-4"> Look forward to the first update from your therapist! </div>
+                )}
+            </div>
+          </div>
+        </div>
       </div>
-      <div>Welcome back, {user.name}</div>
-      <Tracker
-        lastWeek={lastWeek}
-        therapyObjective={therapyObjective}
-        completedSessions={completedSessions}
-        totalSessions={totalSessions}
-      />
-      {fable ? (
-        <Aesopp fable={fable} />
-      ) : (
-        <div> - Look forward to the first update from your therapist! </div>
-      )}
-      <div>
-        <Link to="/Feedback">
-          Let your therapist know how you felt about the session!
-        </Link>
-      </div>
-    </div>
   );
 }
 

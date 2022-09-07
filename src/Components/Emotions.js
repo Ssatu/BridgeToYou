@@ -225,18 +225,38 @@ export default function Emotions(props) {
 
   return (
     <div>
-      {emotionPrompts.map((x) => {
-        return (
-          <div onClick={(e) => handleSelection(x)}>
-            <p>{x.emotion}</p>
-            <p>{x.icon}</p>
+      <div class="text-xl font-bold pt-12">Choose 4 emotions that best describe how you felt after the session</div>
+      <div class="grid grid-cols-4 gap-10 mt-4 mx-40">
+        {emotionPrompts.map((x) => {
+          return (
+            <div class="shadow-lg pt-4 pb-4 rounded-xl border-solid border-2 border-sky-300 hover:bg-slate-200" onClick={(e) => handleSelection(x)}>
+              <p class="text-6xl p-4">{x.icon}</p>
+              <p class="text-3xl">{x.emotion}</p>
+            </div>
+          );
+        })}
+      </div>
+      <div class="flex justify-center pt-4 pb-4">
+      <div class="w-32 p-2 rounded-full border-solid border-2 border-sky-300 hover:bg-slate-200" onClick={(e) => changeEmotions()}> Show more </div>
+      </div>
+      <div>
+        <div class="grid grid-cols-3">
+          <div></div>
+          <div class="grid grid-cols-2">
+            <div class="text-2xl">You chose:</div>
+            <div class="text-xl text-left pl-16">
+              {selected.map((x) => (
+                <p>{x.emotion}{x.icon}</p>
+              ))}
+            </div>
           </div>
-        );
-      })}
-      <div onClick={(e) => changeEmotions()}> Show more </div>
-      {selected.map((x) => (
-        <p>{x.emotion}</p>
-      ))}
+          
+          <div></div>
+        </div>
+        
+      </div>
+      
+      
     </div>
   );
 }

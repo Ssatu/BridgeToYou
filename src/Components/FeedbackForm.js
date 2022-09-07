@@ -209,40 +209,51 @@ export default function FeedbackForm(props) {
   return (
     <div>
       <div>
-        What made you feel these feelings?
-        <div>
+        <div class="text-xl font-bold pt-12 pb-4">What made you feel these emotions ?</div>
+        <div class="grid grid-cols-4 gap-10 mt-4 mx-40 pb-12">
           {props.emotions.map((emotion) => {
-            return <p>{emotion.emotion}</p>;
+            return <p class="mx-8 rounded-3xl border-solid border-2 border-sky-300 text-xl">{emotion.emotion}</p>;
           })}
         </div>
       </div>
 
       {chosenPrompt.length === 0 ? (
-        <div>
+        <div class="grid grid-cols-4 gap-10 mt-4 mx-40 pb-12">
+          <div></div>
+          <div class="col-span-2 bg-amber-100 border-solid border-2">
           {Array.from(selectedPrompts)
             .splice(0, 10)
             .map((x) => {
-              return <div onClick={(e) => choosePrompt(x)}>{x}</div>;
+              return <div class="text-left italic py-4 pl-12 hover:font-bold" onClick={(e) => choosePrompt(x)}>{x}</div>;
             })}
+          </div>
+          <div></div>
         </div>
+        
       ) : (
-        <div>
-          <div>{chosenPrompt}</div>
-          <form>
-            <label for="explanation">Tell us more!</label>
-            <br />
-            <input
-              type="text"
-              onChange={(e) => {
-                setFeedback(e.target.value);
-              }}
-              value={feedback}
-            />
-            <button onClick={(e) => handleSubmit()}>
-              {" "}
-              Submit your feedback!{" "}
-            </button>
-          </form>
+        <div class="grid grid-cols-4 gap-10 mt-4 mx-40 pb-12">
+          <div></div>
+          <div class="text-left italic py-8 px-12 col-span-2 bg-amber-100 border-solid border-2">
+            <divv>{chosenPrompt}</divv>
+            <form>
+              <label for="explanation">Tell us more!</label>
+              <br />
+              <input
+                type="text"
+                onChange={(e) => {
+                  setFeedback(e.target.value);
+                }}
+                value={feedback}
+              />
+              <div class="flex justify-center pt-20"> 
+                <button class="w-60 p-2 rounded-full bg-white border-solid border-2 border-amber-300 hover:bg-slate-200" onClick={(e) => handleSubmit()}>
+                  {" "}
+                  Submit your feedback!{" "}
+                </button>
+              </div>
+            </form>
+          </div>
+          <div></div>
         </div>
       )}
     </div>

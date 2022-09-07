@@ -12,8 +12,6 @@ function PatientFeedback() {
 
   return (
     <div>
-      <div onClick={(e) => navigate("/PatientDashboard")}>Back</div>
-
       {emotions.length < 4 ? (
         <Emotions setEmotions={setEmotions} />
       ) : (
@@ -21,6 +19,9 @@ function PatientFeedback() {
           <FeedbackForm emotions={emotions} />
         </div>
       )}
+      <div class="flex justify-center pt-4">
+        <div class="w-32 p-2 rounded-full border-solid border-2 border-amber-300 hover:bg-slate-200" onClick={(e) => navigate("/PatientDashboard")}>Back</div>
+      </div>
     </div>
   );
 }
