@@ -1,10 +1,10 @@
 # This app was built for Mindfulhacks 2022
 
-The project aims to increase the rate of patient retention for therapists.
+The project aims to increase the rate of patient retention for therapists and improve clinical outcomes.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Getting started
 
-## Available Scripts
+This project requires npm to pack dependencies into a single package.
 
 In the project directory, you can run:
 
