@@ -1,4 +1,4 @@
-# This app was built for Mindfulhacks 2022
+# BuildForYou was built for Mindfulhacks 2022
 
 The project aims to increase the rate of patient retention for therapists and improve clinical outcomes. 
 
