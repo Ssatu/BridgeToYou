@@ -1,10 +1,14 @@
 # This app was built for Mindfulhacks 2022
 
-The project aims to increase the rate of patient retention for therapists and improve clinical outcomes.
+The project aims to increase the rate of patient retention for therapists and improve clinical outcomes. 
 
 ## Getting started
 
 This project requires npm to pack dependencies into a single package.
+
+Run the following command with npm installed to load the dependencies required:
+
+### `npm install`
 
 In the project directory, you can run:
 
